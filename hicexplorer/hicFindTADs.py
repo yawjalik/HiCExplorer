@@ -507,7 +507,7 @@ class HicFindTads(object):
 
         # maximum and minimum candidates are temporarily stored in
         # min_x and min_y respectively
-        min_y, max_y = np.Inf, -np.Inf
+        min_y, max_y = np.inf, -np.inf
         max_pos, min_pos = None, None
         search_for = None
         # Only detect peak if there is 'lookahead' amount of points after it
@@ -518,7 +518,7 @@ class HicFindTads(object):
                 prev_chrom = chrom[index]
             if prev_chrom != chrom[index]:
                 # reset variables at the start of a chromosome
-                min_y, max_y = np.Inf, -np.Inf
+                min_y, max_y = np.inf, -np.inf
                 max_pos, min_pos = None, None
                 search_for = None
 
@@ -532,7 +532,7 @@ class HicFindTads(object):
                 min_pos = x
 
             # look for max
-            if y < max_y - delta and max_y != np.Inf and search_for != 'min':
+            if y < max_y - delta and max_y != np.inf and search_for != 'min':
                 # Maximum peak candidate found
                 # look ahead in signal to ensure that this is a peak and not jitter
                 if y_axis[index:index + lookahead].max() < max_y:
@@ -546,7 +546,7 @@ class HicFindTads(object):
                     continue
 
             # look for min
-            if y > min_y + delta and min_y != -np.Inf and search_for != 'max':
+            if y > min_y + delta and min_y != -np.inf and search_for != 'max':
                 # Minimum peak candidate found
                 # look ahead in signal to ensure that this is a peak and not jitter
                 if y_axis[index:index + lookahead].min() > min_y:
